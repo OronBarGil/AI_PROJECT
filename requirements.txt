@@ -1,0 +1,4 @@
+Pillow
+numpy
+cryptography
+opencv-python
