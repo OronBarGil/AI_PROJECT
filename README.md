@@ -106,7 +106,7 @@ You need to run the server first, and then the client.
 Navigate to the project directory and run the server script:
 ```bash
 python RFServer.py [options]
-
+```
 **Server command-line options:**
 
 * `--host <hostname>`: Server host address (default: `0.0.0.0`).
@@ -120,7 +120,7 @@ python RFServer.py [options]
 
 ```bash
 python RFServer.py --port 9000
-
+```
 ## Using the Client GUI 🖱️
 
 Once the client application starts:
