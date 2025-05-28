@@ -106,3 +106,17 @@ You need to run the server first, and then the client.
 Navigate to the project directory and run the server script:
 ```bash
 python RFServer.py [options]
+
+**Server command-line options:**
+
+* `--host <hostname>`: Server host address (default: `0.0.0.0`).
+* `--port <port_number>`: Server port number (default: `9000`).
+* `--model <model_file_path>`: Path to the Random Forest model file (default: `vehicle_rf_model.npy`).
+* `--train_dir <path_to_train_data>`: Directory containing training data (default: `train`, relative to `Model_pics`).
+* `--test_dir <path_to_test_data>`: Directory containing test data (default: `test`, relative to `Model_pics`).
+* `--training_limit <number>`: Maximum number of training samples to use per class (default: `10000`).
+
+**Example:**
+
+```bash
+python RFServer.py --port 9000
