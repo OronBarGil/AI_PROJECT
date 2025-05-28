@@ -120,3 +120,50 @@ python RFServer.py [options]
 
 ```bash
 python RFServer.py --port 9000
+
+## Using the Client GUI 🖱️
+
+Once the client application starts:
+
+### Connect to Server:
+
+* The GUI will open on the "Login/Register" tab.
+* The server address and port are displayed. Click the "**Connect**" button to establish a connection with the server.
+* The status label will indicate "Connected" if successful. The initial connection also involves a security handshake where RSA public keys are exchanged and an AES session key is established.
+
+### Register (New Users):
+
+* In the "Register" section, enter a desired username, password, confirm the password, and optionally provide an email address.
+* Click the "**Register**" button. You will receive a confirmation message upon successful registration.
+
+### Login (Existing Users):
+
+* In the "Login" section, enter your username and password.
+* Click the "**Login**" button.
+* Upon successful login, the "Image Classification" tab will be enabled and automatically selected. Your username will be displayed in this tab.
+
+### Image Classification:
+
+* On the "Image Classification" tab, click the "**Select Image**" button to choose an image file from your computer (supports formats like JPG, PNG, BMP, GIF).
+* The selected image will be displayed in the GUI.
+* Click the "**Classify Image**" button. The image will be preprocessed (resized to 32x32, normalized), sent securely to the server, and classified.
+* The classification results, including the predicted class, confidence score, and class probabilities, will be displayed in the "Classification Results" area.
+
+### Logout:
+
+* Click the "**Logout**" button in the "Image Classification" tab to log out. This will disable the "Image Classification" tab and return you to the "Login/Register" tab.
+
+### Disconnect:
+
+* On the "Login/Register" tab, click the "**Disconnect**" button (which was previously the "Connect" button) to close the connection to the server.
+
+## Modules 🧩
+
+* `RFClient.py`: Implements the client-side application with a Tkinter GUI for user interaction, image selection, and communication with the server for classification.
+* `RFServer.py`: Implements the server-side application that handles client connections, user authentication, model loading/training, image feature extraction, and classification.
+* `Random_Forest.py`: Contains the implementation of the Random Forest classifier algorithm, including bootstrapping and ensemble prediction.
+* `Decision_Tree.py`: Provides the implementation for a single decision tree, which is used as a base learner in the Random Forest. Includes logic for splitting nodes based on Gini impurity or information gain.
+* `treenode.py`: Defines the `TreeNode` class used to build the decision trees.
+* `DatabaseHandler.py`: Manages all database operations using SQLite, including creating tables, registering users with hashed passwords and salts, and authenticating users.
+* `SecurityUtils.py`: A utility class providing methods for RSA and AES encryption/decryption to secure client-server communication.
+* `requirements.txt`: Lists the project dependencies.
